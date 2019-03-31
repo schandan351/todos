@@ -50,3 +50,22 @@ function createTODO(text){
 }
 
 
+var todoInput =document.getElementById("todo-input");
+var todoAdd=document.getElementById("todo-add");
+var todoMainContainer=document.getElementById("todo-main");
+// var ulContainer=document.getElementById("todo-main");
+
+
+todoAdd.addEventListener("click",function(e){
+    if(todoInput.value.length >1){
+            var todo=createTODO(todoInput.value);
+           
+            todoMainContainer.append(todo);
+            console.log(todoMainContainer);
+            // ulContainer.append(todoMainContainer)
+            todoInput.value="";
+        }
+    }
+)
+ 
+
