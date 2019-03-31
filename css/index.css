@@ -1,0 +1,88 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+
+ul{
+    list-style-type: none;;
+}
+.todo-container{
+    margin: 20px auto;
+    max-width: 600px;
+    /* background-color: aqua; */
+}
+#todo-header{
+    padding: 20px;
+    background-color: gray;
+    text-align: center;
+}
+
+#todo-header h1{
+    padding: 20px;
+    font-size: 3em;
+}
+#todo-header input{
+    width: 80%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+#todo-header input:hover{
+    background-color: rgba(216, 168, 168, 0.2);
+    opacity: 1;
+}
+#todo-header #todo-add{
+    padding: 10px;
+    margin-left: -5px;
+    border: none;
+    outline: none;
+}
+
+#todo-header #todo-add:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#todo-main .no-todos{
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(223, 162, 162);
+    font-size: 2em;
+}
+#todo-main .todo{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+#todo-main .todo:nth-child(2n){
+    background-color:rgb(143, 105, 105);
+}
+#todo-main .todo:nth-child(2n+1){
+    background-color: rgb(139, 121, 121);
+}
+
+#todo-main .todo button{
+    padding: 5px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+#todo-main .todo button .fas{
+    margin-left: 4px;
+}
+#todo-main .todo button:hover{
+    opacity: 1;
+}
+#todo-main .todo .buttons .up{
+    background-color: rgb(128, 173, 128);
+}
+
+#todo-main .todo .buttons .remove{
+    background-color: rgb(226, 105, 105);
+}
