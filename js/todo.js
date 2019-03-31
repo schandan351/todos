@@ -57,12 +57,18 @@ var todoMainContainer=document.getElementById("todo-main");
 
 
 todoAdd.addEventListener("click",function(e){
-    if(todoInput.value.length >1){
-            var todo=createTODO(todoInput.value);
-           
-            todoMainContainer.append(todo);
-            console.log(todoMainContainer);
-            // ulContainer.append(todoMainContainer)
+    if(todoInput.value.length >0){
+        var todo=createTODO(todoInput.value);
+        if(!todoMainContainer.querySelector(".todo")){
+            var noToDosP=document.querySelector("p.no-todos");
+            todoMainContainer.removeChild(noToDosP);
+            var ul=createUl("todo-list");
+            ul.append(todo);
+            todoMainContainer.append(ul);
+        }else{
+            var ul=document.querySelector(".todo-list");
+            ul.append(todo);
+        }
             todoInput.value="";
         }
     }
@@ -70,7 +76,7 @@ todoAdd.addEventListener("click",function(e){
  
 
 todoInput.addEventListener("keyup",function(e){
-    if(todoInput.value.length >1){
+    if(todoInput.value.length >0){
         if(e.keyCode===13){
             var todo=createTODO(todoInput.value);
             if(!todoMainContainer.querySelector(".todo")){
@@ -88,3 +94,42 @@ todoInput.addEventListener("keyup",function(e){
     }
 })
 
+todoMainContainer.addEventListener("click",function(e){
+    if(e.target.nodeName=== "BUTTON"){
+        var button=e.target;
+        var typeButton=button.getAttribute("data-purpose");
+
+        var li=button.parentElement.parentElement;
+        var ul=li.parentElement;
+
+        switch(typeButton){
+            case "remove":
+                ul.removeChild(li);
+                if(ul.children.length <1){
+                    var p=createParagraph("NO TODOS TO DISPLAY","no-todos");
+                    var li=document.querySelector(".todo-list");
+                    todoMainContainer.removeChild(li);
+                    todoMainContainer.append(p);
+                }
+                break;
+
+            case "up":
+                var previousElement=li.previousElementSibling;
+
+                if(previousElement!==null){
+                    ul.removeChild(li);
+                    ul.insertBefore(li,previousElement);
+                }
+                break;
+            
+            case "down":
+                var nextElement=li.nextElementSibling;
+                if(nextElement!==null){
+                    ul.removeChild(li);
+                    ul.insertBefore(li,nextElement.nextElementSibling);
+                }
+                break;
+
+        }
+    }
+})
