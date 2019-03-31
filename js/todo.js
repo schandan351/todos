@@ -69,3 +69,22 @@ todoAdd.addEventListener("click",function(e){
 )
  
 
+todoInput.addEventListener("keyup",function(e){
+    if(todoInput.value.length >1){
+        if(e.keyCode===13){
+            var todo=createTODO(todoInput.value);
+            if(!todoMainContainer.querySelector(".todo")){
+                var noToDosP=document.querySelector("p.no-todos");
+                todoMainContainer.removeChild(noToDosP);
+                var ul=createUl("todo-list");
+                ul.append(todo);
+                todoMainContainer.append(ul);
+            }else{
+                var ul=document.querySelector(".todo-list");
+                ul.append(todo);
+            }
+            todoInput.value="";
+        }
+    }
+})
+
