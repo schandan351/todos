@@ -57,6 +57,7 @@ ul{
     display: flex;
     padding: 20px;
     justify-content: space-between;
+    align-content: center;
 }
 #todo-main .todo:nth-child(2n){
     background-color:rgb(143, 105, 105);
