@@ -2,4 +2,4 @@
 This is todo app  created using html css and javascript
 
 ##Try it 
-link:
+link:https://schandan351.github.io/todos/
